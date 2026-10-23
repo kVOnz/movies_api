@@ -27,8 +27,17 @@ async def put_movie(session: AsyncSession, movie_id: int, movie_data: MovieCreat
     await session.commit()
     return movie
 
-async def patch_movie(session: AsyncSession):
-    pass
+async def patch_movie(session: AsyncSession, movie_id: int, movie_data: MovieUpdate) -> Movie | None:
+    movie = await session.get(Movie, movie_id)
+    if not movie: return None
+    for field, value in movie_data.model_dump(exclude_unset=True).items():
+        setattr(movie, field, value)
+    await session.commit()
+    return movie
 
-async def delete_movie(session: AsyncSession):
-    pass
+async def delete_movie(session: AsyncSession, movie_id: int) -> bool:
+    movie_to_delete = await session.get(Movie, movie_id)
+    if not movie_to_delete: return False
+    await session.delete(movie_to_delete)
+    await session.commit()
+    return True
