@@ -39,6 +39,7 @@ movies_api/
 
 ## Быстрый старт
 1. Клонировать репозиторий
+```text
 git clone https://github.com/kVOnz/movies_api.git
 cd movies_api
 
@@ -55,3 +56,4 @@ alembic upgrade head
 5. Запустить сервер или зайти через Swagger
 uvicorn movies_api.src.main:app --reload
 http://127.0.0.1:8000/docs
+```
