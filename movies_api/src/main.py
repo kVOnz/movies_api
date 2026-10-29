@@ -3,7 +3,7 @@ from src.routers.movies import router as movie_router
 
 app = FastAPI()
 
-app.get('/')
+@app.get('/')
 async def root():
     return {"message":"Movies API готов к работе"}
 
