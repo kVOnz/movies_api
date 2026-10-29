@@ -20,6 +20,7 @@
 - **сервер:** Uvicorn
 
 ## Структура проекта
+```text
 movies_api/
 ├── alembic/                 # Файлы миграций базы данных
 ├── src/
@@ -30,10 +31,11 @@ movies_api/
 │   ├── schemas/             # Pydantic схемы для валидации данных
 │   ├── repositories/        # слой доступа к данным (CRUD-операции)
 │   └── routers/             # API эндпоинты
-├── .env                     
+├── .env
 ├── alembic.ini              # конфигурация Alembic
 ├── requirements.txt         # библиотеки проекта
 └── .gitignore
+```
 
 ## Быстрый старт
 1. Клонировать репозиторий
